@@ -1,0 +1,19 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.easymock.EasyMock;
+import org.junit.jupiter.api.Test;
+
+import cal.Calculadora;
+
+public class CalculadoraTest {
+	@Test
+	void somarTest() {
+		Calculadora calc = EasyMock.createMock(Calculadora.class);
+		EasyMock.expect(calc.somar(2, 3)).andReturn(5);
+		EasyMock.replay(calc);
+		assertEquals(5, calc.somar(2, 3));
+		EasyMock.verify(calc);
+	}
+}

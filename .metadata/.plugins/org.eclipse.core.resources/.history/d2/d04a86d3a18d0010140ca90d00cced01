@@ -1,0 +1,48 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import main.Calculadora;
+
+public class CalculadoraTest {
+	private Calculadora calculadora;
+
+	@BeforeEach
+	void setUp() {
+		calculadora = new Calculadora();
+	}
+
+	@Test
+	void somarResultado() {
+		double resultado = calculadora.somar(10, 2);
+		assertEquals(12, resultado, "A soma de 10 + 2 deve ser igual a 12");
+	}
+
+	@Test
+	void subtrairResultado() {
+		double resultado = calculadora.subtrair(10, 2);
+		assertEquals(8, resultado, "A subtração de 10 - 2 deve ser igual a 8");
+	}
+
+	@Test
+	void dividirResultado() {
+		double resultado = calculadora.dividir(10, 2);
+		assertEquals(5, resultado, "A divisão de 10 / 2 deve ser igual a 5");
+	}
+
+	@Test
+	void divisaoPorZero() {
+		assertThrows(IllegalArgumentException.class, () -> calculadora.dividir(0, 10),
+				"A divisao por zero deve lançar uma exceção");
+	}
+
+	@Test
+	void multiplicarResultado() {
+		double resultado = calculadora.multiplicar(10, 2);
+		assertEquals(20, resultado, "A multiplicação de 10 * 2 deve ser igual a 20");
+	}
+}

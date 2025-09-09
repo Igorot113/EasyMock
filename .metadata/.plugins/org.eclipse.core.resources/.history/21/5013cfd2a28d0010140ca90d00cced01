@@ -1,0 +1,14 @@
+package test;
+
+import org.easymock.EasyMock;
+import org.junit.jupiter.api.Test;
+
+import cal.Calculadora;
+
+public class CalculadoraTest {
+	@Test
+	void somarTest() {
+		Calculadora calc = EasyMock.createMock(Calculadora.class);
+		EasyMock.expect(calc.somar(2, 3)).andReturn(5);
+	}
+}

@@ -1,0 +1,7 @@
+package jogoInterface;
+
+public class Combate {
+	private Atacante atacante;
+	private Defensor defensor;
+	private Magia magia;
+}

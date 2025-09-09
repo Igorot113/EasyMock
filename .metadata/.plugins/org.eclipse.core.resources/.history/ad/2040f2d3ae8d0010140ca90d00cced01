@@ -1,0 +1,26 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.easymock.EasyMock;
+import org.junit.jupiter.api.Test;
+
+import jogoInterface.Atacante;
+import jogoInterface.Combate;
+import jogoInterface.Defensor;
+import jogoInterface.Magia;
+
+public class CombateTest {
+	@Test
+	void teste1() {
+		Atacante atacante = EasyMock.createMock(Atacante.class);
+		Defensor defensor = EasyMock.createMock(Defensor.class);
+		EasyMock.expect(atacante.atacar()).andReturn(20);
+		EasyMock.expect(defensor.defensor(10)).andReturn(10);
+		EasyMock.replay(atacante,defensor);
+		Combate combate = new Combate(atacante, defensor, null);
+		assertEquals(20, atacante.atacar());
+		assertEquals(10, defensor.defensor(10));
+		EasyMock.verify(atacante,defensor);
+	}
+}

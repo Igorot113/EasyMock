@@ -1,0 +1,14 @@
+package test;
+
+import org.easymock.EasyMock;
+import org.junit.jupiter.api.Test;
+
+import jogoInterface.Atacante;
+import jogoInterface.Combate;
+
+public class CombateTest {
+	@Test
+	void atacar() {
+		Atacante atacante = new EasyMock.createMock(Atacante.class);
+	}
+}

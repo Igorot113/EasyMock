@@ -1,0 +1,12 @@
+package test;
+
+import org.easymock.EasyMock;
+
+import interPagamento.ProcessarCartao;
+
+public class PagamentoTest {
+	@Test
+	void testPagementoAprovado() {
+		ProcessarCartao mock = EasyMock.createMock(ProcessarCartao.class);
+	}
+}

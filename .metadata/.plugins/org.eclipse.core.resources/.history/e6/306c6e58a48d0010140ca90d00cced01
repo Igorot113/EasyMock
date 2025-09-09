@@ -1,0 +1,9 @@
+package interPagamento;
+
+public interface ProcessarCartao() {
+	
+}
+
+public class Pagamento {
+
+}

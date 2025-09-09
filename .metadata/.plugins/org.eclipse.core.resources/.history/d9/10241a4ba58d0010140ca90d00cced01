@@ -1,0 +1,20 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.easymock.EasyMock;
+
+import interPagamento.Pagamento;
+import interPagamento.ProcessarCartao;
+
+public class PagamentoTest {
+	@Test
+	void testPagementoAprovado() {
+		ProcessarCartao mock = EasyMock.createMock(ProcessarCartao.class);
+		EasyMock.expect(mock.cobrar("1234", 100.0)).andReturn(true);
+		EasyMock.replay(mock);
+		Pagamento pagamento = new Pagamento(mock);
+		assertTrue(pagamento.pagar("1234", 100.0));
+		EasyMock.verify(mock);
+	}
+}

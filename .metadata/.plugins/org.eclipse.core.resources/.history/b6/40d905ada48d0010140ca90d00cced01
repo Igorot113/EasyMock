@@ -1,0 +1,9 @@
+package interPagamento;
+
+public class Pagamento {
+	private ProcessarCartao cartao;
+	
+	public Pagamento(ProcessarCartao cartao) {
+		this.cartao = cartao;
+	}
+}

@@ -1,0 +1,5 @@
+package interPagamento;
+
+public class Pagamento {
+	private ProcessarCartao cartao;
+}
