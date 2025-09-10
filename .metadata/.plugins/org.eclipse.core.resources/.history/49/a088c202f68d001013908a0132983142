@@ -1,0 +1,64 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.easymock.EasyMock;
+import org.junit.jupiter.api.Test;
+
+import jogoInterface.Atacante;
+import jogoInterface.Combate;
+import jogoInterface.Defensor;
+import jogoInterface.Magia;
+
+public class CombateTest {
+	@Test
+	void teste1() {
+		Atacante atacante = EasyMock.createMock(Atacante.class);
+		Defensor defensor = EasyMock.createMock(Defensor.class);
+		EasyMock.expect(atacante.atacar()).andReturn(20);
+		EasyMock.expect(defensor.defensor(20)).andReturn(10);
+		EasyMock.replay(atacante, defensor);
+		Combate combate = new Combate(atacante, defensor);
+		assertEquals(10, combate.realizarAtaque());
+		EasyMock.verify(atacante, defensor);
+	}
+
+	@Test
+	void teste2() {
+		Magia magia = EasyMock.createMock(Magia.class);
+		EasyMock.expect(magia.lancarMagia("Explosão de fogo!")).andReturn("Explosão de fogo!");
+		EasyMock.replay(magia);
+		Combate combate = new Combate(magia);
+		assertEquals("Explosão de fogo!", combate.usarMagia("Explosão de fogo!"));
+		EasyMock.verify(magia);
+
+	}
+
+	@Test
+	void teste3() {
+		Atacante atacante = EasyMock.createMock(Atacante.class);
+		Defensor defensor = EasyMock.createMock(Defensor.class);
+		EasyMock.expect(atacante.atacar()).andReturn(10);
+		EasyMock.expect(defensor.defensor(10)).andThrow(new AssertionError("Nao tem como defender 0"));
+		EasyMock.replay(atacante, defensor);
+		Combate combate = new Combate(atacante, defensor);
+		assertThrows(AssertionError.class, () -> {
+			combate.realizarAtaque();
+		});
+		EasyMock.verify(atacante, defensor);
+	}
+
+	@Test
+	void test4() {
+		Atacante atacante = EasyMock.createMock(Atacante.class);
+		Defensor defensor = EasyMock.createMock(Defensor.class);
+		EasyMock.expect(atacante.atacar()).andReturn(5).times(3);
+		EasyMock.expect(defensor.defensor(5)).andReturn(2).times(3);
+		EasyMock.expect(atacante.atacar()).andReturn(5).andReturn(10).andReturn(15);
+		EasyMock.replay(atacante, defensor);
+		Combate combate = new Combate(atacante, defensor);
+		assertEquals(2, combate.realizarAtaque());
+		EasyMock.verify(atacante, defensor);
+	}
+}

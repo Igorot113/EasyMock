@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="cal.Calculadora"/>
-    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
     <fullyQualifiedTypeName name="interPagamento.ProcessarCartao"/>
     <fullyQualifiedTypeName name="interPagamento.Pagamento"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="jogoInterface.Defensor"/>
-    <fullyQualifiedTypeName name="jogoInterface.Combate"/>
     <fullyQualifiedTypeName name="jogoInterface.Magia"/>
+    <fullyQualifiedTypeName name="jogoInterface.Atacante"/>
+    <fullyQualifiedTypeName name="jogoInterface.Combate"/>
+    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+    <fullyQualifiedTypeName name="java.lang.AssertionError"/>
     <fullyQualifiedTypeName name="org.easymock.EasyMock"/>
 </qualifiedTypeNameHistroy>

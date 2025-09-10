@@ -5,15 +5,16 @@ public class Combate {
 	private Defensor defensor;
 	private Magia magia;
 
-	public Combate(Atacante atacante, Defensor defensor, Magia magia) {
-		this.atacante = atacante;
-		this.defensor = defensor;
-		this.magia = magia;
+	public Combate() {
 	}
-	
+
 	public Combate(Atacante atacante, Defensor defensor) {
 		this.atacante = atacante;
 		this.defensor = defensor;
+	}
+
+	public Combate(Magia magia) {
+		this.magia = magia;
 	}
 
 	public int realizarAtaque() {
